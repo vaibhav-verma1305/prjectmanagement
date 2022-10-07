@@ -1,0 +1,57 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>GALGOTIAS UNIVERSIT PROJECT</title>
+	<link rel="stylesheet" href="{% static 'backend/style.css' %}">
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="header">
+		<div class="top">
+			<div class="logo">
+				<img src="{% static 'backend/images/GU.png' %}" alt="GU" style="width: 175px;">
+			</div>
+			<div class="form">
+				<div class="input_field">
+					<input type="text" placeholder="Phone number, username, or email" class="input">
+				</div>
+				<div class="input_field">
+					<input type="password" placeholder="Password" class="input">
+				</div>
+				<div class="btn"><a href="#">Log In</a></div>
+			</div>
+				<div class="forgot">
+					<a href="#">Forgot password?</a>
+				</div>
+			</div>
+		</div>
+		<div class="signup">
+			<p>Don't have an account? <a href="#">Sign up</a></p>
+		</div>
+		<div class="apps">
+			<p>Get the app.</p>
+			<div class="icons">
+				<a href="#"><img src="{% static 'backend/images/appstore.png' %}" alt="AppStore" style="width: 50px; "></a>
+				<a href="#"><img src="{% static 'backend/images/googleplay.png' %}" alt="GooglePlay" style="width: 50px; "></a>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="links">
+			<ul>
+				<li><a href="#">ABOUT US</a></li>
+				<li><a href="#">SUPPORT</a></li>
+				<li><a href="#">PRIVACY</a></li>
+				<li><a href="#">TERMS</a></li>
+			</ul>
+		</div>
+		<div class="copyright">
+			© 2022 GALGOTIAS UNIVERSITY
+		</div>
+	</div>
+</div>
+</body>
+</html>
