@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Galgotias University</title>
+    <link rel="stylesheet" href="{% static 'mainpage.css' %}">
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo"><img src= {% static 'backend/images/GU.png'%} width="250"  height="60"></h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=jn2nT-VI2Dk">ABOUT</a></li>
+                    <li><a href="#">PROJECTS</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="search" style="text-align:right;">
+                <a href="/signout"> <button class="btn">Signout</button></a>
+            </div>
+
+        </div> 
+        <div class="content">
+            <h1><u>Galgotias University</u><br></h1>
+            <p class="par">
+                <u style="text-decoration: underline; text-decoration-color: white; color:#ff7200">Your story begins from here.</u></p>
+                <div class="lg"><button class="cn"><a href="/first_year">First Year</a></button></div>
+                <div class="lg"><button class="cn"><a href="/second_year">Second Year</a></button></div>
+                <div class="lg"><button class="cn"><a href="/third_year">Third Year</a></button></div>
+                <div class="lg"><button class="cn"><a href="/fourth_year">Fourth Year</a></button></div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

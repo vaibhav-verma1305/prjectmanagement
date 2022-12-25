@@ -1,0 +1,126 @@
+<!-- 
+  **************
+  Contest Entry for Treehouse:
+  "Design a Contact Form"
+  Submitted by Lisa Wagner
+  **************
+-->
+{% load static %}
+<link rel="stylesheet" href="{% static 'maketeam.css' %}">
+<div id="contact-form" >
+  <div>
+    <h1 style="color:#C3447A; text-align:center;">MAKE TEAM</h1> 
+    <!--<div>
+      <label for="name">
+        <span class="required" style="color:#a25fcb;">Registration No:</span> 
+        <input type="text" id="regnumber" name="regnumber" value="{{regno}}" readonly />
+      </label> 
+    </div>-->
+    <h2 style="color:#C3447A;">Enter Details of Team Members.</h2> 
+    <h4 style="color:#C3447A;">Enter Details of Member 1st.</h4> 
+  </div>
+  <form method="post" action="/third_year">
+      {% csrf_token %}
+      {% for message in messages %}
+        {% if message.tags == 'error' %}
+          {{ message }}
+          {% endif %}
+          {% endfor%}
+        <div>
+                <label for="name">
+                  <span class="required" style="color:#a25fcb;">Enrollment No: *</span> 
+                  <input type="text" id="name" name="enrollment7" value="" placeholder="Enrollment No." required="required" tabindex="1" autofocus="autofocus" />
+                </label> 
+            </div>
+        <div>
+                <label for="name">
+                  <span class="required" style="color:#a25fcb;">Admission No: *</span> 
+                  <input type="text" id="name" name="admission7" value="" placeholder="Admission No:" required="required" tabindex="1" autofocus="autofocus" />
+                </label> 
+            </div>
+        <div>
+            <label for="name">
+              <span class="required" style="color:#a25fcb;">Name: *</span> 
+              <input type="text" id="name" name="name7" value="" placeholder="Name" required="required" tabindex="1" autofocus="autofocus" />
+            </label> 
+        </div>
+        <div>
+            <label for="email">
+              <span class="required" style="color:#a25fcb;">Email: *</span>
+              <input type="email" id="email" name="email7" value="" placeholder="Email ID" tabindex="2" required="required" />
+            </label>  
+        </div>
+        <div>
+            <label for="name">
+              <span class="required" style="color:#a25fcb;">Phone No: *</span> 
+              <input type="text" id="name" name="phone7" value="" placeholder="Phone No" required="required" tabindex="1" autofocus="autofocus" />
+            </label> 
+        </div>
+        <h4 style="color:#C3447A;">Enter Details of Member 2nd.</h4> 
+        <div>
+            <label for="name">
+              <span class="required" style="color:#a25fcb;">Enrollment No: *</span> 
+              <input type="text" id="name" name="enrollment8" value="" placeholder="Enrollment No." required="required" tabindex="1" autofocus="autofocus" />
+            </label> 
+        </div>
+    <div>
+            <label for="name">
+              <span class="required" style="color:#a25fcb;">Admission No: *</span> 
+              <input type="text" id="name" name="admission8" value="" placeholder="Admission No:" required="required" tabindex="1" autofocus="autofocus" />
+            </label> 
+        </div>
+    <div>
+        <label for="name">
+          <span class="required" style="color:#a25fcb;">Name: *</span> 
+          <input type="text" id="name" name="name8" value="" placeholder="Name" required="required" tabindex="1" autofocus="autofocus" />
+        </label> 
+    </div>
+    <div>
+        <label for="email">
+          <span class="required" style="color:#a25fcb;">Email: *</span>
+          <input type="email" id="email" name="email8" value="" placeholder="Email ID" tabindex="2" required="required" />
+        </label>  
+    </div>
+    <div>
+        <label for="name">
+          <span class="required" style="color:#a25fcb;">Phone No: *</span> 
+          <input type="text" id="name" name="phone8" value="" placeholder="Phone No" required="required" tabindex="1" autofocus="autofocus" />
+        </label> 
+    </div>
+    <h4 style="color:#C3447A;">Enter Details of Member 3rd.</h4> 
+        <div>
+            <label for="name">
+              <span class="required" style="color:#a25fcb;">Enrollment No: *</span> 
+              <input type="text" id="name" name="enrollment9" value="" placeholder="Enrollment No." required="required" tabindex="1" autofocus="autofocus" />
+            </label> 
+        </div>
+    <div>
+            <label for="name">
+              <span class="required" style="color:#a25fcb;">Admission No: *</span> 
+              <input type="text" id="name" name="admission9" value="" placeholder="Admission No:" required="required" tabindex="1" autofocus="autofocus" />
+            </label> 
+        </div>
+    <div>
+        <label for="name">
+          <span class="required" style="color:#a25fcb;">Name: *</span> 
+          <input type="text" id="name" name="name9" value="" placeholder="Name" required="required" tabindex="1" autofocus="autofocus" />
+        </label> 
+    </div>
+    <div>
+        <label for="email">
+          <span class="required" style="color:#a25fcb;">Email: *</span>
+          <input type="email" id="email" name="email9" value="" placeholder="Email ID" tabindex="2" required="required" />
+        </label>  
+    </div>
+    <div>
+        <label for="name">
+          <span class="required" style="color:#a25fcb;">Phone No: *</span> 
+          <input type="text" id="name" name="phone9" value="" placeholder="Phone No" required="required" tabindex="1" autofocus="autofocus" />
+        </label> 
+    </div>
+        <div>              
+            <button name="submit"  href="/mainpage" type="submit" id="submit" >SUBMIT</button> 
+        </div>
+         </form>
+  
+    </div>
