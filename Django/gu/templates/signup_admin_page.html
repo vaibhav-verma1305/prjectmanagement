@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>LOG IN</title>
+      <link rel="stylesheet" href="{% static 'login.css' %}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+      <form method="post" action="/signin">
+      {% csrf_token %}
+      <div class="bg-img">
+         <div class="content">
+            <u><header>Signup For Admin</header></u>
+            <form action="/signup_admin_page">
+               <div class="field">
+                  <span class="fa fa-user"></span>
+                  <input type="text" name="username" required placeholder="username">
+               </div>
+               <div class="field space">
+                <span class="fa fa-user"></span>
+                <input type="text" name="email" required placeholder="email">
+             </div>
+               <div class="field space">
+                  <span class="fa fa-lock"></span>
+                  <input type="password"  name="password" required placeholder="Password">
+                  <span class="show">SHOW</span>
+               </div>
+               <div class="pass">
+                  <a href="/password_reset">Forgot Password?</a>
+               </div>
+               <div class="field space">
+                <input type="submit" value="SIGN UP">
+             </div>
+   </body>
+</html>
