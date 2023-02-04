@@ -1,0 +1,8 @@
+<!-- student_signup.html -->
+<form method="post" action="/signup_admin_page">
+   {% csrf_token %}
+   {{ form.as_p }}
+   <button type="submit">Sign up</button>
+ </form>
+ 
+ 
