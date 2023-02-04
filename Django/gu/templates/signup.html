@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>SIGN UP</title>
+      <link rel="stylesheet" href="{% static 'signup.css' %}"> 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+      <form method="post" action="/signup">
+         {% csrf_token %}
+      <div class="bg-img">
+         <div class="content">
+            <header>SIGN UP</header>
+            <form action="#">
+                <div class="field space">
+                    <span class="fa fa-user"></span>
+                    <input type="text" class="form-control" id="name" name="username" required placeholder="Name">
+                    <span class="show">SHOW</span>
+                 </div>
+               <div class="field space">
+                  <span class="fa fa-user"></span>
+                  <input type="text" class="form-control" id="email" name="email"  required placeholder="Email">
+                  <span class="show">SHOW</span>
+               </div>
+               <div class="field space">
+                  <span class="fa fa-lock"></span>
+                  <input type="password" class="form-control" id="pass1" name="pass1" required placeholder="Password">
+                  <span class="show">SHOW</span>
+               </div>
+               <div class="field space">
+                <span class="fa fa-lock"></span>
+                <input type="password" class="form-control" id="pass2" name="pass2"  required placeholder="Confirm Password">
+                <span class="show">SHOW</span>
+             </div>
+               
+               <div class="field space">
+                  <input type="submit" value="SIGN UP">
+               </div>
+            </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
