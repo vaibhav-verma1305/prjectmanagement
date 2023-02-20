@@ -112,22 +112,27 @@ nav{
 }
 
 /* Main Body Section */
-.t{
-  
-  text-align: center;
+.main-body{
+  width: 70%;
+  padding: 1rem;
 }
 .promo_card{
   width: 100%;
   color: #fff;
-  margin-top: 200px;
-  margin-right: 200px;
+  margin-top: 10px;
   border-radius: 8px;
+  padding: 0.5rem 1rem 1rem 3rem;
   background: rgb(37, 37, 37);
 }
 .promo_card h1, .promo_card span, button{
-  margin: 200px;
+  margin: 10px;
 }
-
+.promo_card button{
+  display: block;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 .history_lists{
   display: flex;
   align-items: center;

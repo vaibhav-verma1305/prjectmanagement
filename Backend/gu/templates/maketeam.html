@@ -1,57 +1,170 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Simple registration form</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'teammade.css' %}">
-  </head>
-  <body>
-    <form method="post" action="/maketeam">
-      {% csrf_token %}
-    <div class="main-block" style="text-align:center;">
-      <h1 style="color: #100f0f;">TEAMMATE-1</h1>
-        <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-        <input type="text" name="enrollment1" id="name" placeholder="Enrollment No." required/>
-        <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-        <input type="text" name="admission1" id="name" placeholder="Admission No." required/>
-        <label id="icon" for="name"><i class="fas fa-user"></i></label>
-        <input type="text" name="name1" id="name" placeholder="Name" required/>
-        <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-        <input type="text" name="email1" id="name" placeholder="Email" required/>
-        <label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
-        <input type="text" name="phone1" id="name" placeholder="Phone No." required/>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Dashboard | By HighTable</title>
+  <link rel="stylesheet" href="{% static 'maketeam.css' %}">
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #eee;
+    }
+    .header .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+    }
+    .header .logo a {
+      text-decoration: none;
+      color: #333;
+      margin-right: 10px;
+    }
+    .header .search_box {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 5px;
+    }
+    .header .search_box input[type="text"] {
+      border: none;
+      outline: none;
+      font-size: 16px;
+      margin-left: 5px;
+    }
+    .header .header-icons {
+      display: flex;
+      align-items: center;
+    }
+    .header .header-icons i {
+      font-size: 20px;
+      margin-left: 10px;
+    }
+    .header .header-icons .account {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 10px;
+    }
+    .header .header-icons .account img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-bottom: 5px;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 300px;
+      height: 200px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 0 auto;
+    }
+    input {
+      margin: 10px 0;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    nav {
+      height: 100%;
+      width: 200px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #eee;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+    nav a {
+      display: block;
+      padding: 15px;
+      color: #333;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background-color: #ddd;
+    }
+    .side_navbar {
+      margin-bottom: 20px;
+    }
+    .side_navbar span {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .links {
+      margin-top: 20
+    </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <a href="#">Project</a>
+      <div class="search_box">
+        <input type="text" placeholder="Search EasyPay">
+        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+      </div>
     </div>
-    <div class="main-block" style="text-align:center;">
-      <h1 style="color: #100f0f;">TEAMMATE-2</h1>
-        <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-        <input type="text" name="enrollment2" id="name" placeholder="Enrollment No." required/>
-        <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-        <input type="text" name="admission2" id="name" placeholder="Admission No." required/>
-        <label id="icon" for="name"><i class="fas fa-user"></i></label>
-        <input type="text" name="name2" id="name" placeholder="Name" required/>
-        <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-        <input type="text" name="email2" id="name" placeholder="Email" required/>
-        <label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
-        <input type="text" name="phone2" id="name" placeholder="Phone No." required/>
+
+    <div class="header-icons">
+      <i class="fas fa-bell"></i>
+      <div class="account">
+        <img src="./pic/img.jpg" alt="">
+        <h4>User</h4>
+      </div>
     </div>
-    <div class="main-block" style="text-align:right;">
-      <h1 style="color: #100f0f;">TEAMMATE-3</h1>
-        <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-        <input type="text" name="enrollment3" id="name" placeholder="Enrollment No." required/>
-        <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-        <input type="text" name="admission3" id="name" placeholder="Admission No." required/>
-        <label id="icon" for="name"><i class="fas fa-user"></i></label>
-        <input type="text" name="name3" id="name" placeholder="Name" required/>
-        <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-        <input type="text" name="email3" id="name" placeholder="Email" required/>
-        <label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
-        <input type="text" name="phone3" id="name" placeholder="Phone No." required/>
+  </header>
+  <div class="nav">
+    <div class="side_navbar">
+      <span><u>Main Menu</u></span>
+      <a href="#" class="active">Dashboard</a>
+      <a href="#">Maketeam</a>
+      <a href="#">Review-1</a>
+      <a href="#">Review-2</a>
+      <a href="#">ETE Viva</a>
+      <a href="#">Chat</a>
+
+      <div class="links">
+        <span><u>Quick Link</u></span>
+        <a href="https://www.ieee.org/publications/">IEEE</a>
+        <a href="#">IJRESM</a>
+        <a href="#">Research Gate</a>
+      </div>
     </div>
-    <div style="text-align:centre;">              
-      <button name="submit"  href="/mainpage" type="submit" id="submit" >SUBMIT</button> 
   </div>
-</form>
-  </body>
+  <div class="container">
+    <form>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+    </form>
+  </div>
+</body>
 </html>

@@ -19,4 +19,7 @@ urlpatterns = [
    path('sample', views.sample, name="sample"),
    path('teamdetails', views.teamdetails, name="teamdetails"),
    path('contact', views.contact, name="contact"),
+   path('t', views.t, name="t"),
+   path('attendence', views.attendence, name="attendence"),
+   path('import_data', views.import_data, name="import_data"),
 ]

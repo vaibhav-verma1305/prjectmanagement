@@ -10,8 +10,15 @@ from django.contrib import messages
 from .models import Team
 from datetime import datetime
 import uuid
-from gupms.helpers import send_forget_password_mail
 from django.db.models import Max
+from django.contrib.auth.models import AbstractUser
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+from .models import Account
+from django.contrib.auth.decorators import login_required
+import pandas as pd
+from django.contrib.auth.hashers import make_password
+from gupms.models import Account
 # Create your views here.
 
 def home(request):
@@ -35,21 +42,42 @@ def signup(request):
         messages.success(request, "Your Account has been Successfully Created."+ username)
         return redirect('/signin')
     return render(request, "signup.html")
+
 def signin(request):
-    if request.method =="POST":
-        username=request.POST['username']
-        password=request.POST['password']
-        user= authenticate(username=username, password=password)
+    if request.user.is_authenticated:
+        # If user is already authenticated, redirect to main page
+        return redirect('mainpage')
+
+    if request.method == 'POST':
+        name = request.POST['name']
+        password = request.POST['password']
+        
+        # Check if user with specified name exists in the Account model
+        try:
+            user = Account.objects.get(name=name)
+        except Account.DoesNotExist:
+            user = None
+        
         if user is not None:
-            login(request, user)
-            return redirect('/mainpage')
+            authenticated_user = authenticate(request, name=name, password=password)
+            if authenticated_user is not None:
+                login(request, authenticated_user)
+                return redirect('template/mainpage')
+            else:
+                # If authentication fails, show an error message
+                error_msg = 'Invalid name or password'
+                return render(request, 'signin.html', {'error_msg': error_msg})
         else:
-            pass
-    return render(request,"signin.html")
+            # If user with specified name doesn't exist, show an error message
+            error_msg = 'User does not exist'
+            return render(request, 'signin.html', {'error_msg': error_msg})
+    else:
+        return render(request, 'signin.html')
 def signout(request):
     logout(request)
     messages.success(request, "Logged Out Successfully")
     return redirect('home')
+@login_required
 def mainpage(request):
     return render(request, "mainpage.html")
 def select(request):
@@ -105,4 +133,17 @@ def sample(request):
     return render(request,"sample.html")
 def contact(request):
     return render(request,"contact.html")
+def t(request):
+    return render(request,"t.html")
+def attendence(request):
+    return render(request,"attendence.html")
+
+def import_data(request):
+    df = pd.read_excel(r"C:\Users\DEEPU\OneDrive\Desktop\Backend\dummy.xlsx")
+    for index, row in df.iterrows():
+        password = make_password(row['password'])  # hash the password
+        account = Account(name=row['name'], email=row['email'], password=password)
+        # add other fields as needed
+        account.save()
+    return render(request, 'import_data.html')
 

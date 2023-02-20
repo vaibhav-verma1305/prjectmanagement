@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 class Team(models.Model):
     regnumber = models.IntegerField(null=True)
     enrollment1 = models.CharField(max_length=30)
@@ -21,7 +22,8 @@ class Team(models.Model):
     def __str__(self):
         return self.name1
 
-# Create your models here.
-
-
+class Account(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    password = models.CharField(max_length=255)
 
