@@ -1,8 +1,0 @@
-import sys
-
-a = sys.argv[1]
-
-def stringReverse(a):
-	return (a[::-1])
-
-print(stringReverse(a))
